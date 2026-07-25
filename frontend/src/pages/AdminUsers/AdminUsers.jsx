@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./AdminUsers.css";
 import AdminSidebar from "../../components/AdminSidebar/AdminSidebar";
+
+
 import {
 FaSearch,
 FaUserPlus,
@@ -15,6 +17,8 @@ import { getAllUsers } from "../../api/adminApi";
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     loadUsers();
@@ -68,10 +72,7 @@ const AdminUsers = () => {
           
             <div className="users-stats">
 
-    <div className="user-stat-card">
-        <h3>{users.length}</h3>
-        <p>Total Users</p>
-    </div>
+    
 
     <div className="user-stat-card active-card">
         <h3>{users.filter(u=>u.status==="active").length}</h3>
@@ -89,6 +90,10 @@ const AdminUsers = () => {
     </div>
 
 </div>
+<div className="user-stat-card">
+        <h3>{users.length}</h3>
+        <p>Total Users</p>
+    </div>
 
           
 
@@ -100,18 +105,25 @@ const AdminUsers = () => {
 
             <thead>
 
-              <tr>
+<tr>
 
-                <th>#</th>
-                <th>Email</th>
-                <th>Account</th>
-                <th>Balance</th>
-                <th>Status</th>
-                <th>Action</th>
+<th>#</th>
 
-              </tr>
+<th>Name</th>
 
-            </thead>
+<th>Email</th>
+
+<th>Account</th>
+
+<th>Balance</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
 
             <tbody>
 
@@ -161,7 +173,7 @@ const AdminUsers = () => {
 
                     <td>{user.accountNumber}</td>
 
-                    <td>₹ {Number(user.balance).toLocaleString()}</td>
+                    <td>₹ {Number(user.balance || 0).toLocaleString("en-IN")}</td>
 
                     <td>
 
@@ -177,10 +189,14 @@ const AdminUsers = () => {
 
                       <div className="action-buttons">
 
-<button className="view-btn">
-
-<FaEye/>
-
+<button
+  className="view-btn"
+  onClick={() => {
+    setSelectedUser(user);
+    setShowModal(true);
+  }}
+>
+  <FaEye />
 </button>
 
 <button className="edit-btn">
@@ -224,6 +240,7 @@ const AdminUsers = () => {
         </div>
 
       </div>
+      
 
     </div>
   );

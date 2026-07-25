@@ -1,0 +1,50 @@
+.admin-settings-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f6f9;
+}
+
+.settings-container {
+    flex: 1;
+    margin-left: 260px;   /* same width as your sidebar */
+    padding: 30px;
+}
+
+.profile-card,
+.password-card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.password-card form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.password-card input{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.password-card button{
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.logout-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+}

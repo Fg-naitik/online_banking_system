@@ -1,0 +1,93 @@
+.admin-account-page{
+    display:flex;
+    min-height:100vh;
+    background:#f4f6f9;
+}
+
+.account-container{
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+}
+
+.account-container h1{
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.account-card{
+    background:#fff;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.profile-icon{
+    font-size:70px;
+    color:#2563eb;
+}
+
+.profile-header h2{
+    margin:0;
+}
+
+.profile-header span{
+    color:#777;
+}
+
+.account-details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.detail-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#f8f9fb;
+    padding:18px;
+    border-radius:10px;
+}
+
+.detail-box svg{
+    font-size:24px;
+    color:#2563eb;
+}
+
+.detail-box label{
+    font-size:13px;
+    color:#777;
+}
+
+.detail-box p{
+    margin-top:4px;
+    font-weight:600;
+}
+
+.edit-btn{
+    margin-top:30px;
+    padding:12px 25px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.edit-btn:hover{
+    background:#1d4ed8;
+}

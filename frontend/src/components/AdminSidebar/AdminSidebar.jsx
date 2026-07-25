@@ -27,7 +27,7 @@ const AdminSidebar = () => {
     },
     {
       title: "Accounts",
-      path: "/admin/accounts",
+      path: "/admin/account",
       icon: <FaUniversity />,
     },
     {

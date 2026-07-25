@@ -23,7 +23,10 @@ import LoanHistoryPage from "./pages/LoanHistoryPage/LoanHistoryPage";
 import LoanDetailsPage from "./pages/LoanDetailsPage/LoanDetailsPage";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import AdminUsers from "./pages/AdminUsers/AdminUsers";
-
+import AdminTransactions from "./pages/AdminTransactions/AdminTransactions";
+import AdminSettings from "./pages/AdminSettings/AdminSettings";
+import AdminLoans from "./pages/AdminLoans/AdminLoans";
+import AdminAccount from "./pages/AdminAccount/AdminAccount";
 
 function App() {
   return (
@@ -82,6 +85,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+    path="/admin/account"
+    element={<AdminAccount />}
+/>
 
         <Route
           path="/settings"
@@ -91,6 +98,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+<Route
+    path="/admin/loans"
+    element={<AdminLoans />}
+/>        
 
         <Route
           path="/loans"
@@ -107,6 +118,10 @@ function App() {
       <LoanDetailsPage />
     </ProtectedRoute>
   }
+/>
+<Route
+    path="/admin/settings"
+    element={<AdminSettings />}
 />
 
         <Route
@@ -147,6 +162,10 @@ function App() {
           }
           
         />
+        <Route
+  path="/admin/transactions"
+  element={<AdminTransactions />}
+/>
                 <Route
             path="/security/change-pin"
             element={
