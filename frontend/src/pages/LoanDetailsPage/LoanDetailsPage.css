@@ -1,0 +1,141 @@
+.loan-details-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.loan-details-main {
+  flex: 1;
+  padding: 35px;
+}
+
+.details-header {
+  margin-bottom: 25px;
+}
+
+.details-header h1 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.details-header p {
+  color: #666;
+  font-size: 15px;
+}
+
+.details-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.detail-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.detail-item span {
+  font-size: 13px;
+  color: #777;
+}
+
+.detail-item strong {
+  font-size: 18px;
+  color: #222;
+}
+
+.documents-card {
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.documents-card h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.document-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.doc-btn {
+  padding: 12px 20px;
+  background: #4f46e5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: .3s;
+  font-weight: 600;
+}
+
+.doc-btn:hover {
+  background: #4338ca;
+}
+
+.status {
+  padding: 8px 14px;
+  border-radius: 30px;
+  width: fit-content;
+  color: white;
+}
+
+.status.pending {
+  background: #f59e0b;
+}
+
+.status.approved {
+  background: #10b981;
+}
+
+.status.rejected {
+  background: #ef4444;
+}
+
+.loan-details-loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+@media (max-width:768px){
+
+.loan-details-main{
+padding:20px;
+}
+
+.details-card{
+grid-template-columns:1fr;
+}
+
+.document-buttons{
+flex-direction:column;
+}
+
+.doc-btn{
+text-align:center;
+}
+
+}

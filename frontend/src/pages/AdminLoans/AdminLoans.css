@@ -1,0 +1,339 @@
+/* ===========================
+   ADMIN LOANS
+=========================== */
+
+.admin-loans-page{
+    display:flex;
+    min-height:100vh;
+    background:#f5f8fc;
+    font-family:'Poppins',sans-serif;
+}
+
+.admin-loans-container{
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.loan-header{
+    margin-bottom:30px;
+}
+
+.loan-header h1{
+    font-size:34px;
+    color:#1f2937;
+    margin-bottom:8px;
+}
+
+.loan-header p{
+    color:#6b7280;
+    font-size:15px;
+}
+
+/* ===========================
+   TOOLBAR
+=========================== */
+
+.loan-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.loan-search{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    padding:15px 18px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.loan-search svg{
+    color:#29B6F6;
+    font-size:18px;
+}
+
+.loan-search input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:15px;
+    background:transparent;
+}
+
+.loan-toolbar select{
+    width:180px;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    cursor:pointer;
+}
+
+/* ===========================
+   STATISTICS
+=========================== */
+
+.loan-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.loan-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.loan-card:hover{
+    transform:translateY(-5px);
+}
+
+.loan-card svg{
+    width:60px;
+    height:60px;
+    padding:18px;
+    border-radius:15px;
+    background:#29B6F6;
+    color:white;
+    font-size:24px;
+}
+
+.pending-card svg{
+    background:#F59E0B;
+}
+
+.approve-card svg{
+    background:#10B981;
+}
+
+.reject-card svg{
+    background:#EF4444;
+}
+
+.loan-card span{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.loan-card h2{
+    margin-top:5px;
+    color:#111827;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.loan-table-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    overflow-x:auto;
+}
+
+.loan-table-card table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.loan-table-card thead{
+    background:#f9fafb;
+}
+
+.loan-table-card th{
+    padding:18px;
+    text-align:left;
+    color:#6b7280;
+    font-weight:600;
+}
+
+.loan-table-card td{
+    padding:18px;
+    border-bottom:1px solid #edf2f7;
+}
+
+.loan-table-card tbody tr{
+    transition:.3s;
+}
+
+.loan-table-card tbody tr:hover{
+    background:#f8fbff;
+}
+
+/* ===========================
+   CUSTOMER
+=========================== */
+
+.customer-info h4{
+    margin:0;
+    font-size:15px;
+    color:#111827;
+}
+
+.customer-info span{
+    color:#6b7280;
+    font-size:13px;
+}
+
+/* ===========================
+   STATUS
+=========================== */
+
+.loan-status{
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.loan-status.pending{
+    background:#FEF3C7;
+    color:#B45309;
+}
+
+.loan-status.approved{
+    background:#D1FAE5;
+    color:#047857;
+}
+
+.loan-status.rejected{
+    background:#FEE2E2;
+    color:#DC2626;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.loan-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.view-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    background:#29B6F6;
+    color:white;
+    cursor:pointer;
+}
+
+.approve-btn{
+    border:none;
+    background:#10B981;
+    color:white;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.reject-btn{
+    border:none;
+    background:#EF4444;
+    color:white;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#0284c7;
+}
+
+.approve-btn:hover{
+    background:#059669;
+}
+
+.reject-btn:hover{
+    background:#dc2626;
+}
+
+/* ===========================
+   EMPTY DATA
+=========================== */
+
+.no-data{
+    text-align:center;
+    padding:40px;
+    color:#9ca3af;
+    font-size:15px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1200px){
+
+.loan-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.admin-loans-container{
+margin-left:0;
+padding:20px;
+}
+
+.loan-toolbar{
+flex-direction:column;
+}
+
+.loan-search{
+width:100%;
+}
+
+.loan-toolbar select{
+width:100%;
+}
+
+.loan-stats{
+grid-template-columns:1fr;
+}
+
+.loan-actions{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+
+@media(max-width:768px){
+
+.loan-table-card{
+padding:15px;
+}
+
+.loan-table-card table{
+min-width:900px;
+}
+
+}

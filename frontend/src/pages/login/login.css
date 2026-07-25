@@ -1,0 +1,399 @@
+/* ===========================
+   LOGIN PAGE STYLES
+   =========================== */
+
+.login-page {
+  min-height: 100vh;
+  background: #f0f8ff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- NAVBAR ---- */
+.login-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.login-nav .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.login-nav .logo-icon {
+  width: 28px;
+  height: 28px;
+  background: #29b6f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-nav .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.login-nav .nav-right a {
+  color: #29b6f6;
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+/* ---- MAIN BODY ---- */
+.login-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  background: #f0f8ff;
+}
+
+/* ---- CARD ---- */
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 40px 36px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+}
+
+.login-card h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.login-card .login-tagline {
+  text-align: center;
+  font-size: 13.5px;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+/* ---- SOCIAL BUTTONS ---- */
+.social-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.social-btn:hover {
+  border-color: #29b6f6;
+  background: #f0f9ff;
+}
+
+.social-btn svg {
+  flex-shrink: 0;
+}
+
+/* ---- DIVIDER ---- */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.login-divider span {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ---- FORM FIELDS ---- */
+.form-field {
+  margin-bottom: 16px;
+}
+
+.field-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-input-wrap .field-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+.field-input-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #0f172a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field-input-wrap input::placeholder {
+  color: #94a3b8;
+}
+
+.field-input-wrap input:focus {
+  border-color: #29b6f6;
+  box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.12);
+}
+.btn-signin {
+  width: 100%;
+  background: #29b6f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-signin:hover {
+  background: #0288d1;
+}
+
+.btn-signin:disabled {
+  background: #7dd3fc;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- CHECKBOX ROW ---- */
+/* ---- REMEMBER ROW ---- */
+
+/* ---- REMEMBER ROW ---- */
+
+.remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0 22px;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+  cursor: pointer;
+}
+
+.remember-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #29b6f6;
+  cursor: pointer;
+}
+
+.remember-row a {
+  color: #29b6f6;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.remember-row a:hover {
+  text-decoration: underline;
+}
+/* ---- BIOMETRIC ---- */
+.biometric-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: #475569;
+  font-weight: 500;
+  background: none;
+  padding: 10px;
+}
+
+/* ---- BOTTOM SECURITY ---- */
+.login-footer-strip {
+  margin-top: 0;
+  padding: 24px 40px 32px;
+  background: #f0f8ff;
+}
+
+.security-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+.sec-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sec-badge-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #29b6f6;
+  flex-shrink: 0;
+}
+
+.sec-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-badge-text strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sec-badge-text span {
+  font-size: 10.5px;
+  color: #94a3b8;
+}
+
+/* ---- PAGE FOOTER LINKS ---- */
+.login-page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 0 28px;
+}
+
+.login-page-footer a {
+  font-size: 11.5px;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.login-page-footer a:hover {
+  color: #475569;
+}
+
+.footer-sep {
+  width: 1px;
+  height: 12px;
+  background: #e2e8f0;
+}
+
+/* ---- SECURED NOTE ---- */
+.secured-note {
+  text-align: center;
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  padding-top: 4px;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 540px) {
+  .login-nav { padding: 0 16px; }
+  .login-card { padding: 28px 20px 24px; }
+  .social-btns { grid-template-columns: 1fr; }
+  .security-badges { flex-direction: column; gap: 16px; }
+  .login-footer-strip { padding: 20px 16px 24px; }
+}
+.eye-btn{
+  position:absolute;
+  right:14px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:16px;
+  color:#94a3b8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

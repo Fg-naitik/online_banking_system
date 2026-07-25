@@ -1,0 +1,84 @@
+/* MESSAGE CENTER PAGE */
+*{box-sizing:border-box}
+.mc-layout{display:flex;min-height:100vh;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif}
+.mc-main{margin-left:192px;flex:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* TOPBAR */
+.mc-topbar{height:56px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:40;flex-shrink:0}
+.mc-srch{display:flex;align-items:center;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 14px;min-width:260px}
+.mc-srch input{border:none;background:none;font-size:13px;outline:none;width:100%;color:#0f172a}
+.mc-srch input::placeholder{color:#94a3b8}
+.mc-tb-r{display:flex;align-items:center;gap:14px}
+.mc-bell{position:relative;width:32px;height:32px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#64748b}
+.mc-bdot{position:absolute;top:4px;right:4px;width:6px;height:6px;background:#ef4444;border-radius:50%;border:1.5px solid #fff}
+.mc-av{width:34px;height:34px;border-radius:50%;background:#29b6f6;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;position:relative;flex-shrink:0}
+.mc-avd{position:absolute;bottom:1px;right:1px;width:8px;height:8px;background:#10b981;border-radius:50%;border:1.5px solid #fff}
+
+/* CONTENT */
+.mc-content{padding:24px 28px 40px;flex:1}
+
+/* PAGE HEADER */
+.mc-page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.mc-title-group{display:flex;align-items:center;gap:10px}
+.mc-title-group h1{font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+.mc-new-pill{background:#29b6f6;color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:100px}
+.mc-header-actions{display:flex;align-items:center;gap:10px}
+.mc-mark-all{display:flex;align-items:center;gap:5px;font-size:12.5px;color:#64748b;font-weight:500;background:none;border:none;cursor:pointer;transition:color .15s}
+.mc-mark-all:hover{color:#0f172a}
+.mc-settings-icon-btn{width:32px;height:32px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#64748b}
+
+/* AI SUMMARY BANNER */
+.mc-ai-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#e1f5fe;border:1px solid #bae6fd;border-radius:13px;padding:16px 20px;margin-bottom:22px}
+.mc-ai-left{display:flex;align-items:center;gap:12px}
+.mc-ai-icon{width:36px;height:36px;border-radius:10px;background:#29b6f6;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:17px}
+.mc-ai-title-row{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.mc-ai-title{font-size:13.5px;font-weight:700;color:#0f172a}
+.mc-ai-beta{background:#fff;color:#0288d1;font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px}
+.mc-ai-text{font-size:12.5px;color:#0369a1;line-height:1.55}
+.mc-ask-ai-btn{display:flex;align-items:center;gap:5px;font-size:13px;color:#0288d1;font-weight:700;background:none;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0}
+
+/* FILTER TABS */
+.mc-tabs{display:flex;align-items:center;border-bottom:1px solid #e2e8f0;margin-bottom:18px}
+.mc-tab{padding:10px 16px;font-size:13px;font-weight:500;color:#94a3b8;border:none;background:none;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1px;transition:all .15s}
+.mc-tab.active{color:#0f172a;font-weight:600;border-bottom-color:#0f172a}
+
+/* SEARCH + DELETE ROW */
+.mc-search-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.mc-msg-search{flex:1;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px 13px}
+.mc-msg-search input{flex:1;border:none;background:none;font-size:13px;outline:none;color:#0f172a}
+.mc-msg-search input::placeholder{color:#94a3b8}
+.mc-del-btn{width:36px;height:36px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#64748b;flex-shrink:0}
+
+/* MESSAGE CARD */
+.mc-msg-card{background:#fff;border-radius:12px;border:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.05);padding:18px 20px;margin-bottom:12px;transition:box-shadow .15s}
+.mc-msg-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.mc-msg-row{display:flex;align-items:flex-start;gap:14px}
+.mc-msg-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+.mc-icon-red{background:#fef2f2}
+.mc-icon-green{background:#dcfce7}
+.mc-icon-blue{background:#e1f5fe}
+.mc-icon-gray{background:#f1f5f9}
+.mc-msg-body{flex:1}
+.mc-msg-title-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.mc-msg-title{font-size:13.5px;font-weight:700;color:#0f172a}
+.mc-unread-dot{width:7px;height:7px;background:#29b6f6;border-radius:50%;flex-shrink:0}
+.mc-msg-time{font-size:11.5px;color:#94a3b8;margin-left:auto;white-space:nowrap}
+.mc-msg-text{font-size:13px;color:#475569;line-height:1.6;margin-bottom:12px}
+.mc-msg-actions{display:flex;align-items:center;gap:10px}
+.mc-btn-primary{display:flex;align-items:center;gap:6px;background:#29b6f6;color:#fff;border:none;border-radius:7px;padding:7px 15px;font-size:12.5px;font-weight:600;cursor:pointer;transition:background .15s}
+.mc-btn-primary:hover{background:#0288d1}
+.mc-btn-dismiss{background:none;border:none;font-size:12.5px;color:#64748b;cursor:pointer;font-weight:500;padding:7px 4px;transition:color .15s}
+.mc-btn-dismiss:hover{color:#0f172a}
+
+/* FOOTER NOTE */
+.mc-footer-note{text-align:center;font-size:12px;color:#94a3b8;padding:16px 0 4px}
+
+.mc-page-footer{padding:14px 28px;font-size:11px;color:#94a3b8;border-top:1px solid #f1f5f9;background:#fff;display:flex;align-items:center;justify-content:space-between;margin-left:192px}
+.mc-page-footer-links{display:flex;gap:18px}
+.mc-page-footer-links a{font-size:11px;color:#94a3b8;text-decoration:none}
+
+@media(max-width:768px){
+  .mc-main{margin-left:0}
+  .mc-page-footer{margin-left:0}
+  .mc-ai-banner{flex-direction:column;align-items:flex-start}
+}

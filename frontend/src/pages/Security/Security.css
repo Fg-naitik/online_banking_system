@@ -1,0 +1,148 @@
+/* SECURITY CENTER PAGE */
+*{box-sizing:border-box}
+.sec-layout{display:flex;min-height:100vh;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif}
+.sec-main{margin-left:192px;flex:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* TOPBAR */
+.sec-topbar{height:56px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:40}
+.sec-srch{display:flex;align-items:center;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 14px;min-width:260px}
+.sec-srch input{border:none;background:none;font-size:13px;outline:none;width:100%;color:#0f172a}
+.sec-srch input::placeholder{color:#94a3b8}
+.sec-tb-r{display:flex;align-items:center;gap:14px}
+.sec-bell{position:relative;width:32px;height:32px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#64748b}
+.sec-bdot{position:absolute;top:4px;right:4px;width:6px;height:6px;background:#ef4444;border-radius:50%;border:1.5px solid #fff}
+.sec-av{width:34px;height:34px;border-radius:50%;background:#29b6f6;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;position:relative;flex-shrink:0}
+.sec-avd{position:absolute;bottom:1px;right:1px;width:8px;height:8px;background:#10b981;border-radius:50%;border:1.5px solid #fff}
+
+/* CONTENT */
+.sec-content{padding:24px 28px 40px;flex:1}
+
+/* PAGE HEADER */
+.sec-page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.sec-page-header h1{font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+.sec-page-header p{font-size:13px;color:#64748b;margin-top:3px}
+.sec-header-btns{display:flex;gap:10px}
+.btn-refresh-data{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;color:#475569;cursor:pointer;transition:border-color .15s}
+.btn-refresh-data:hover{border-color:#29b6f6;color:#29b6f6}
+.btn-freeze-account{display:flex;align-items:center;gap:7px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;color:#ef4444;cursor:pointer;transition:background .15s}
+.btn-freeze-account:hover{background:#fee2e2}
+
+/* MAIN GRID */
+.sec-grid{display:grid;grid-template-columns:1fr 268px;gap:20px;align-items:start}
+
+/* CARD BASE */
+.sec-card{background:#fff;border-radius:12px;border:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.05);padding:20px 22px;margin-bottom:18px}
+.sec-card h3{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:3px}
+.sec-card p{font-size:12.5px;color:#94a3b8;margin-bottom:18px}
+
+/* AUTH ROWS */
+.sec-auth-row{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid #f8fafc}
+.sec-auth-icon{width:36px;height:36px;border-radius:9px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;color:#475569;flex-shrink:0;margin-top:1px}
+.sec-auth-info{flex:1}
+.sec-auth-title{font-size:13.5px;font-weight:600;color:#0f172a;margin-bottom:3px}
+.sec-auth-sub{font-size:12px;color:#64748b;line-height:1.55}
+.sec-auth-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.sec-strength-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap}
+.sec-strength-badge.strong{background:#dcfce7;color:#16a34a}
+.sec-strength-badge.active{background:#e1f5fe;color:#0288d1}
+.sec-strength-badge.setup{background:#f1f5f9;color:#64748b}
+
+/* DEVICES */
+.sec-devices-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.sec-devices-header h3{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:2px}
+.sec-devices-header p{font-size:12.5px;color:#94a3b8;margin-bottom:0}
+.btn-logout-all{font-size:12.5px;color:#29b6f6;font-weight:600;background:none;border:none;cursor:pointer;white-space:nowrap}
+.sec-devices-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sec-device-card{background:#f8fafc;border-radius:10px;padding:14px;border:1.5px solid #f1f5f9;position:relative}
+.sec-device-card.current{border-color:#29b6f6;background:#f0f9ff}
+.sec-device-icon{width:28px;height:28px;border-radius:7px;background:#fff;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;color:#475569;margin-bottom:8px}
+.sec-device-name{font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:4px}
+.sec-current-badge{font-size:10px;font-weight:700;background:#29b6f6;color:#fff;padding:2px 8px;border-radius:100px;position:absolute;top:10px;right:10px}
+.sec-device-meta{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.sec-device-meta span{font-size:11px;color:#94a3b8}
+
+/* LOGIN HISTORY TABLE */
+.sec-history-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.sec-history-table th{font-size:11.5px;color:#94a3b8;font-weight:600;text-align:left;padding:10px 14px;background:#fafafa;border-bottom:1px solid #f1f5f9;letter-spacing:.03em}
+.sec-history-table td{padding:12px 14px;border-bottom:1px solid #f8fafc;font-size:12.5px;color:#0f172a;vertical-align:middle}
+.sec-history-table tr:last-child td{border-bottom:none}
+.sec-history-table tbody tr:hover{background:#fafafa}
+.sec-td-date{font-size:12px;color:#64748b;white-space:nowrap}
+.sec-td-ip{font-family:monospace;font-size:12px;color:#64748b}
+.sec-status-badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:100px}
+.sec-status-badge.success{background:#dcfce7;color:#16a34a}
+.sec-status-badge.failed{background:#fef2f2;color:#ef4444}
+.btn-view-audit{width:100%;background:none;border:none;font-size:12.5px;color:#29b6f6;font-weight:600;cursor:pointer;padding:8px 0;text-align:center;transition:opacity .15s}
+.btn-view-audit:hover{opacity:.75}
+
+/* RIGHT PANEL */
+.sec-right-panel{display:flex;flex-direction:column;gap:16px}
+
+/* HEALTH CARD */
+.sec-health-card{background:#fff;border-radius:12px;border:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.05);padding:18px}
+.sec-health-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.sec-health-label{font-size:14px;font-weight:700;color:#0f172a}
+.sec-health-sub{font-size:12px;color:#64748b;margin-top:2px}
+.sec-health-shield{width:36px;height:36px;border-radius:9px;background:#e1f5fe;display:flex;align-items:center;justify-content:center;color:#29b6f6}
+.sec-score-wrap{display:flex;justify-content:center;margin-bottom:16px}
+.sec-recommendations{background:#f8fafc;border-radius:10px;padding:13px}
+.sec-rec-label{font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.07em;margin-bottom:9px;text-transform:uppercase}
+.sec-rec-item{width:100%;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px 13px;font-size:12.5px;font-weight:600;color:#0f172a;cursor:pointer;margin-bottom:7px;transition:border-color .15s}
+.sec-rec-item:last-child{margin-bottom:0}
+.sec-rec-item:hover{border-color:#29b6f6;color:#29b6f6}
+.sec-rec-item svg:last-child{margin-left:auto;color:#94a3b8}
+
+/* FRAUD CARD */
+.sec-fraud-card{background:#fff;border-radius:12px;border:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.05);padding:16px}
+.sec-fraud-title{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:#0f172a;margin-bottom:4px}
+.sec-fraud-sub{font-size:12px;color:#64748b;margin-bottom:14px}
+.sec-fraud-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #f8fafc;margin-bottom:10px}
+.sec-fraud-label{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#0f172a;flex:1;flex-wrap:wrap}
+.sec-fraud-recommended{font-size:10.5px;color:#94a3b8;font-weight:500;width:100%;margin-top:1px}
+.sec-fraud-item{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid #f8fafc}
+.sec-fraud-item:last-of-type{border-bottom:none;margin-bottom:10px}
+.sec-fraud-item-icon{width:26px;height:26px;border-radius:6px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.sec-fraud-item-title{font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:2px}
+.sec-fraud-item-sub{font-size:11.5px;color:#64748b;line-height:1.5}
+.btn-customize-limits{width:100%;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px;font-size:12.5px;font-weight:600;color:#475569;cursor:pointer;transition:border-color .15s}
+.btn-customize-limits:hover{border-color:#29b6f6;color:#29b6f6}
+
+/* AI CARD */
+.sec-ai-card{background:#e1f5fe;border-radius:12px;border:1px solid #bae6fd;padding:16px}
+.sec-ai-label{font-size:10.5px;font-weight:700;color:#0288d1;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.sec-ai-text{font-size:12.5px;color:#0369a1;line-height:1.65;font-style:italic;margin-bottom:12px}
+.btn-enable-geo{display:flex;align-items:center;gap:6px;background:#29b6f6;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12.5px;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-enable-geo:hover{background:#0288d1}
+.btn-enable-geo svg:last-child{margin-left:2px}
+
+/* HELP CARD */
+.sec-help-card{background:#fff;border-radius:12px;border:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.05);padding:16px;text-align:center}
+.sec-help-icon{font-size:22px;margin-bottom:7px}
+.sec-help-title{font-size:13.5px;font-weight:700;color:#0f172a;margin-bottom:5px}
+.sec-help-text{font-size:12px;color:#64748b;line-height:1.55;margin-bottom:12px}
+.btn-contact-support{width:100%;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px;font-size:12.5px;font-weight:600;color:#475569;cursor:pointer;transition:border-color .15s}
+.btn-contact-support:hover{border-color:#29b6f6;color:#29b6f6}
+
+/* FOOTER */
+.sec-footer{padding:14px 28px;font-size:11px;color:#94a3b8;border-top:1px solid #f1f5f9;background:#fff;display:flex;align-items:center;justify-content:space-between}
+.sec-ftl{display:flex;gap:18px}
+.sec-ftl a{font-size:11px;color:#94a3b8;text-decoration:none}
+
+@media(max-width:1000px){.sec-grid{grid-template-columns:1fr}.sec-right-panel{display:none}}
+@media(max-width:768px){.sec-main{margin-left:0}.sec-devices-grid{grid-template-columns:1fr}}
+.btn-set-pin{
+    background:#29b6f6;
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-set-pin:hover{
+    background:#0288d1;
+    transform:translateY(-2px);
+}

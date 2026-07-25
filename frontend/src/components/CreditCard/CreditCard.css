@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@600;800&display=swap");
+
+.card-universe-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 150%;
+  min-height: 150%;
+  padding: 40px 20px;
+  background-color:transparent;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.parallax-container {
+  position: relative;
+  width: 380px; /* Exact credit card aspect ratio (approx 1.58:1) */
+  height: 280px;
+  perspective: 1200px; /* Creates the 3D space */
+}
+
+/* --- THE INVISIBLE TRACKING GRID --- */
+.tracker {
+  position: absolute;
+  width: 33.33%;
+  height: 33.33%;
+  z-index: 10;
+}
+
+/* Grid Positioning */
+.tr-1 {
+  top: 0;
+  left: 0;
+}
+.tr-2 {
+  top: 0;
+  left: 33.33%;
+}
+.tr-3 {
+  top: 0;
+  left: 66.66%;
+}
+.tr-4 {
+  top: 33.33%;
+  left: 0;
+}
+.tr-5 {
+  top: 33.33%;
+  left: 33.33%;
+}
+.tr-6 {
+  top: 33.33%;
+  left: 66.66%;
+}
+.tr-7 {
+  top: 66.66%;
+  left: 0;
+}
+.tr-8 {
+  top: 66.66%;
+  left: 33.33%;
+}
+.tr-9 {
+  top: 66.66%;
+  left: 66.66%;
+}
+
+/* --- THE CREDIT CARD --- */
+.tilt-card {
+  position: absolute;
+  inset: 0;
+  /* Deep obsidian metallic finish */
+  background: linear-gradient(135deg, #2b2b2b 0%, #111111 50%, #050505 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.4s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Noise Texture for metallic realism */
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Dynamic Lighting Glare */
+.glare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* --- THE 3D HOVER PHYSICS (PURE CSS) --- */
+.tr-1:hover ~ .tilt-card {
+  transform: rotateX(12deg) rotateY(-12deg);
+  box-shadow: 15px 30px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-2:hover ~ .tilt-card {
+  transform: rotateX(12deg) rotateY(0deg);
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-3:hover ~ .tilt-card {
+  transform: rotateX(12deg) rotateY(12deg);
+  box-shadow: -15px 30px 40px rgba(0, 0, 0, 0.9);
+}
+
+.tr-4:hover ~ .tilt-card {
+  transform: rotateX(0deg) rotateY(-12deg);
+  box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-5:hover ~ .tilt-card {
+  transform: rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-6:hover ~ .tilt-card {
+  transform: rotateX(0deg) rotateY(12deg);
+  box-shadow: -15px 20px 40px rgba(0, 0, 0, 0.9);
+}
+
+.tr-7:hover ~ .tilt-card {
+  transform: rotateX(-12deg) rotateY(-12deg);
+  box-shadow: 15px 10px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-8:hover ~ .tilt-card {
+  transform: rotateX(-12deg) rotateY(0deg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+.tr-9:hover ~ .tilt-card {
+  transform: rotateX(-12deg) rotateY(12deg);
+  box-shadow: -15px 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+/* Glare Movement Physics */
+.tr-1:hover ~ .tilt-card .glare {
+  transform: translate(15%, 15%);
+  opacity: 1;
+}
+.tr-3:hover ~ .tilt-card .glare {
+  transform: translate(-15%, 15%);
+  opacity: 1;
+}
+.tr-7:hover ~ .tilt-card .glare {
+  transform: translate(15%, -15%);
+  opacity: 1;
+}
+.tr-9:hover ~ .tilt-card .glare {
+  transform: translate(-15%, -15%);
+  opacity: 1;
+}
+.tr-2:hover ~ .tilt-card .glare,
+.tr-4:hover ~ .tilt-card .glare,
+.tr-6:hover ~ .tilt-card .glare,
+.tr-8:hover ~ .tilt-card .glare {
+  opacity: 0.6;
+}
+
+/* Reset when not hovering */
+.parallax-container:not(:hover) .tilt-card {
+  transform: rotateX(0) rotateY(0);
+  transition:
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.6s ease;
+}
+
+/* --- CARD CONTENT STYLING --- */
+.card-front {
+  position: relative;
+  z-index: 10;
+  padding: 24px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateZ(30px); /* 3D pop out effect */
+  transform-style: preserve-3d;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.brand-logo {
+  width: 56px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.nfc-icon {
+  color: rgba(255, 255, 255, 0.4);
+  width: 20px;
+  height: 20px;
+  transform: rotate(90deg); /* Standard NFC icon rotation */
+}
+
+/* Physical Embossed Text Effect */
+.embossed {
+  color: #d1d1d1;
+  text-shadow:
+    1px 1px 1px rgba(255, 255, 255, 0.2),
+    -1px -1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.chip-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.chip {
+  width: 44px;
+  height: 34px;
+  background: linear-gradient(135deg, #e0c879 0%, #a67c00 100%);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.chip-line {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.chip-line:nth-child(1) {
+  top: 25%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.chip-line:nth-child(2) {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.chip-line:nth-child(3) {
+  top: 75%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.chip-main {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  right: 25%;
+  bottom: 15%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.card-type {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.card-numbers {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cardholder,
+.valid-thru {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 8px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+}
+
+.value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
