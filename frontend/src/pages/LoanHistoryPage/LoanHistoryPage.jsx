@@ -165,6 +165,7 @@ export default function LoanHistoryPage() {
           loan.status
         )}`}
       >
+        
         {loan.status}
       </span>
 

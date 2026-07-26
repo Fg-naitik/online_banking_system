@@ -131,7 +131,7 @@ const AdminUsers = () => {
 
                 <tr>
 
-                  <td colSpan="6" className="empty-row">
+                  <td colSpan="7" className="empty-row">
                     <>
 <h3>No Users Found</h3>
 <p>Try another search keyword.</p>

@@ -10,7 +10,11 @@ import {
   FaEye,
 } from "react-icons/fa";
 
-import { getAllLoans } from "../../api/adminApi";
+import {
+  getAllLoans,
+  approveLoan,
+  rejectLoan,
+} from "../../api/adminApi";
 
 const AdminLoans = () => {
   const [loans, setLoans] = useState([]);
@@ -27,20 +31,48 @@ const AdminLoans = () => {
   }, [search, statusFilter, loans]);
 
   const loadLoans = async () => {
-    try {
-      const res = await getAllLoans();
-      setLoans(res.loans || []);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  try {
+    const res = await getAllLoans();
+
+    console.log(res.loans);   // 👈 Add this
+
+    setLoans(res.loans || []);
+  } catch (err) {
+    console.log(err);
+  }
+};
+  const handleApprove = async (loanId) => {
+  try {
+    await approveLoan(loanId);
+
+    alert("Loan Approved Successfully");
+
+    loadLoans();
+  } catch (error) {
+    console.log(error);
+    alert("Failed to approve loan");
+  }
+};
+
+const handleReject = async (loanId) => {
+  try {
+    await rejectLoan(loanId);
+
+    alert("Loan Rejected Successfully");
+
+    loadLoans();
+  } catch (error) {
+    console.log(error);
+    alert("Failed to reject loan");
+  }
+};
 
   const filterLoans = () => {
     let data = [...loans];
 
     if (statusFilter !== "All") {
       data = data.filter(
-        (loan) => loan.status.toLowerCase() === statusFilter.toLowerCase()
+        (loan) => (loan.status || "").toLowerCase() === statusFilter.toLowerCase()
       );
     }
 
@@ -57,9 +89,8 @@ const AdminLoans = () => {
 
   const totalLoans = loans.length;
   const pendingLoans = loans.filter(
-    (loan) => loan.status === "Pending"
-  ).length;
-
+  (loan) => loan.status === "Applied"
+).length;
   const approvedLoans = loans.filter(
     (loan) => loan.status === "Approved"
   ).length;
@@ -115,7 +146,7 @@ const AdminLoans = () => {
             }
           >
             <option>All</option>
-            <option>Pending</option>
+            <option>Applied</option>
             <option>Approved</option>
             <option>Rejected</option>
           </select>
@@ -238,55 +269,54 @@ const AdminLoans = () => {
                     <td>
 
                       <span
-                        className={`loan-status ${loan.status.toLowerCase()}`}
+                        className={`loan-status ${(loan.status || "").toLowerCase()}`}
                       >
-                        {loan.status}
+                        {loan.status || "Applied"}
                       </span>
 
                     </td>
 
-                    <td>
+<td>
+  <div className="loan-actions">
 
-                      <div className="loan-actions">
+    {true && (
+      <>
+  <button
+    className="approve-btn"
+    onClick={() => handleApprove(loan.loanId)}
+  >
+    Approve
+  </button>
 
-                        <button
-                          className="view-btn"
-                          title="View Details"
-                        >
-                          <FaEye />
-                        </button>
+  <button
+    className="reject-btn"
+    onClick={() => handleReject(loan.loanId)}
+  >
+    Reject
+  </button>
+</>
+    )}
 
-                        {loan.status === "Pending" && (
-                          <>
-                            <button
-                              className="approve-btn"
-                              onClick={() =>
-                                console.log(
-                                  "Approve Loan",
-                                  loan.loanId
-                                )
-                              }
-                            >
-                              Approve
-                            </button>
+    {loan.status === "Approved" && (
+      <span className="approved-text">
+        Approved
+      </span>
+    )}
 
-                            <button
-                              className="reject-btn"
-                              onClick={() =>
-                                console.log(
-                                  "Reject Loan",
-                                  loan.loanId
-                                )
-                              }
-                            >
-                              Reject
-                            </button>
-                          </>
-                        )}
+    {loan.status === "Rejected" && (
+      <span className="rejected-text">
+        Rejected
+      </span>
+    )}
 
-                      </div>
+    {loan.status === "Active" && (
+      <span className="active-text">
+        Active
+      </span>
+    )}
 
-                    </td>
+  </div>
+</td>
 
                   </tr>
                 ))

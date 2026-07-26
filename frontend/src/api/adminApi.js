@@ -16,3 +16,18 @@ export const getAllLoans = async () => {
   const res = await api.get("/admin/loans");
   return res.data;
 };
+export const approveLoan = async (id) => {
+
+  const res = await api.patch(`/admin/loans/${id}/approve`);
+
+  return res.data;
+
+};
+
+export const rejectLoan = async (id) => {
+
+  const res = await api.patch(`/admin/loans/${id}/reject`);
+
+  return res.data;
+
+};

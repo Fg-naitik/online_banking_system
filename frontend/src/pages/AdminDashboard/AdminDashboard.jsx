@@ -2,34 +2,70 @@ import React, { useEffect, useState } from "react";
 import "./AdminDashboard.css";
 import AdminSidebar from "../../components/AdminSidebar/AdminSidebar";
 import { FaUsers, FaUniversity, FaExchangeAlt, FaMoneyBillWave, FaFileInvoiceDollar, FaClock, FaCheckCircle, FaTimesCircle, FaSearch, FaBell } from "react-icons/fa";
-import { getDashboardStats } from "../../api/adminApi";
+
+import {
+  getDashboardStats,
+  approveLoan,
+  rejectLoan,
+} from "../../api/adminApi";
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
-    totalUsers: 0,
-    totalAccounts: 0,
-    totalTransactions: 0,
-    totalBalance: 0,
-    totalLoans: 0,
-    appliedLoans: 0,
-    approvedLoans: 0,
-    rejectedLoans: 0,
-  });
+  totalUsers: 0,
+  totalAccounts: 0,
+  totalTransactions: 0,
+  totalBalance: 0,
+  totalLoans: 0,
+  appliedLoans: 0,
+  approvedLoans: 0,
+  rejectedLoans: 0,
+});
 
-  const [search, setSearch] = useState("");
+const [recentUsers, setRecentUsers] = useState([]);
+
+const [recentTransactions, setRecentTransactions] = useState([]);
+
+const [pendingLoans, setPendingLoans] = useState([]);
+
+const [search, setSearch] = useState("");
 
   useEffect(() => {
     loadDashboard();
   }, []);
 
   const loadDashboard = async () => {
-    try {
-      const res = await getDashboardStats();
-      setStats(res.stats);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+
+    const res = await getDashboardStats();
+
+    setStats(res.stats);
+
+    setRecentUsers(res.recentUsers);
+
+    setRecentTransactions(res.recentTransactions);
+
+    setPendingLoans(res.pendingLoans);
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleApprove = async (loanId) => {
+
+  await approveLoan(loanId);
+
+  loadDashboard();
+
+};
+
+const handleReject = async (loanId) => {
+
+  await rejectLoan(loanId);
+
+  loadDashboard();
+
+};
 
   const cards = [
     {
@@ -212,49 +248,27 @@ const AdminDashboard = () => {
 
               <tbody>
 
-                <tr>
+{recentUsers.map((user) => (
 
-                  <td>John Doe</td>
+<tr key={user.user_id}>
 
-                  <td>john@gmail.com</td>
+<td>{user.fullName}</td>
 
-                  <td>
-                    <span className="active">
-                      Active
-                    </span>
-                  </td>
+<td>{user.email}</td>
 
-                </tr>
+<td>
 
-                <tr>
+<span className="active">
+Active
+</span>
 
-                  <td>Rahul Sharma</td>
+</td>
 
-                  <td>rahul@gmail.com</td>
+</tr>
 
-                  <td>
-                    <span className="active">
-                      Active
-                    </span>
-                  </td>
+))}
 
-                </tr>
-
-                <tr>
-
-                  <td>Priya Singh</td>
-
-                  <td>priya@gmail.com</td>
-
-                  <td>
-                    <span className="inactive">
-                      Pending
-                    </span>
-                  </td>
-
-                </tr>
-
-              </tbody>
+</tbody>
 
             </table>
 
@@ -291,59 +305,47 @@ const AdminDashboard = () => {
 
               <tbody>
 
-                <tr>
+{pendingLoans.map((loan)=>(
 
-                  <td>Rahul Sharma</td>
+<tr key={loan.loan_id}>
 
-                  <td>₹2,50,000</td>
+<td>{loan.customerName}</td>
 
-                  <td>
-                    <span className="pending">
-                      Pending
-                    </span>
-                  </td>
+<td>₹{Number(loan.amount).toLocaleString()}</td>
 
-                  <td>
+<td>
 
-                    <button className="approve-btn">
-                      Approve
-                    </button>
+<span className="pending">
 
-                    <button className="reject-btn">
-                      Reject
-                    </button>
+{loan.status}
 
-                  </td>
+</span>
 
-                </tr>
+</td>
 
-                <tr>
+<td>
 
-                  <td>Priya Singh</td>
+<button
+  className="approve-btn"
+  onClick={() => handleApprove(loan.loan_id)}
+>
+  Approve
+</button>
 
-                  <td>₹1,20,000</td>
+<button
+  className="reject-btn"
+  onClick={() => handleReject(loan.loan_id)}
+>
+  Reject
+</button>
 
-                  <td>
-                    <span className="pending">
-                      Pending
-                    </span>
-                  </td>
+</td>
 
-                  <td>
+</tr>
 
-                    <button className="approve-btn">
-                      Approve
-                    </button>
+))}
 
-                    <button className="reject-btn">
-                      Reject
-                    </button>
-
-                  </td>
-
-                </tr>
-
-              </tbody>
+</tbody>
 
             </table>
 
@@ -387,55 +389,35 @@ const AdminDashboard = () => {
 
               <tbody>
 
-                <tr>
+{recentTransactions.map((transaction)=>(
 
-                  <td>Amit</td>
+<tr key={transaction.transaction_id}>
 
-                  <td>Credit</td>
+<td>{transaction.customerName}</td>
 
-                  <td>₹5,000</td>
+<td>{transaction.transaction_type}</td>
 
-                  <td>
-                    <span className="success">
-                      Success
-                    </span>
-                  </td>
+<td>
 
-                </tr>
+₹{Number(transaction.amount).toLocaleString()}
 
-                <tr>
+</td>
 
-                  <td>Rohit</td>
+<td>
 
-                  <td>Debit</td>
+<span className="success">
 
-                  <td>₹1,500</td>
+Success
 
-                  <td>
-                    <span className="success">
-                      Success
-                    </span>
-                  </td>
+</span>
 
-                </tr>
+</td>
 
-                <tr>
+</tr>
 
-                  <td>Neha</td>
+))}
 
-                  <td>Transfer</td>
-
-                  <td>₹15,000</td>
-
-                  <td>
-                    <span className="pending">
-                      Pending
-                    </span>
-                  </td>
-
-                </tr>
-
-              </tbody>
+</tbody>
 
             </table>
 
