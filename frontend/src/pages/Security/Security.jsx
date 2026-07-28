@@ -7,6 +7,7 @@ import { useEffect} from "react";
 import api from "../../services/api";
 
 
+
 /* ── Icons ── */
 const SearchIcon = () => <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#94a3b8" strokeWidth="1.3"/><path d="M9.5 9.5l2.5 2.5" stroke="#94a3b8" strokeWidth="1.3" strokeLinecap="round"/></svg>;
 const BellIcon = () => <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a4.5 4.5 0 014.5 4.5v2.5l1.5 2H2L3.5 8.5V6A4.5 4.5 0 018 1.5z" stroke="#64748b" strokeWidth="1.3" strokeLinejoin="round"/><path d="M6.5 12.5a1.5 1.5 0 003 0" stroke="#64748b" strokeWidth="1.3" strokeLinecap="round"/></svg>;
@@ -84,21 +85,7 @@ export default function SecurityPage() {
       <Sidebar active="security" />
 
       <div className="sec-main">
-        {/* ── TOPBAR ── */}
-        <div className="sec-topbar">
-          <div className="sec-srch">
-            <SearchIcon />
-            <input type="text" placeholder="Search transactions or ask AI..." />
-          </div>
-          <div className="sec-tb-r">
-            <button className="sec-bell"><BellIcon /><span className="sec-bdot"></span></button>
-            <div style={{ textAlign:'right' }}>
-              <span style={{ fontSize:'13px', fontWeight:600, display:'block' }}>Alex Rivera</span>
-              <span style={{ fontSize:'11px', color:'#94a3b8', display:'block' }}>Premium Member</span>
-            </div>
-            <div className="sec-av">A<span className="sec-avd"></span></div>
-          </div>
-        </div>
+
 
         <div className="sec-content">
 

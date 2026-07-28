@@ -8,6 +8,7 @@ import api from "../../services/api";
 
 
 
+
 const SearchIcon = () => <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#94a3b8" strokeWidth="1.3"/><path d="M9.5 9.5l2.5 2.5" stroke="#94a3b8" strokeWidth="1.3" strokeLinecap="round"/></svg>;
 const BankIcon = () => <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 7h14M3 7V15M15 7V15M1 15h16M9 2L1 7h16L9 2z" stroke="#0f172a" strokeWidth="1.3" strokeLinejoin="round"/><rect x="6" y="10" width="2.5" height="5" stroke="#0f172a" strokeWidth="1.2"/><rect x="9.5" y="10" width="2.5" height="5" stroke="#0f172a" strokeWidth="1.2"/></svg>;
 const BackArrow = () => <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M8 2.5L3.5 6.5 8 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>;
@@ -469,24 +470,6 @@ const renderStep = () => {
       <Sidebar active="loans" />
 
       <div className="la-main">
-        {/* Topbar */}
-        <div className="la-topbar">
-          <div className="la-srch">
-            <SearchIcon />
-            <input type="text" placeholder="Search transactions or ask AI..." />
-          </div>
-          <div className="la-tb-r">
-            <button className="la-bell">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a4.5 4.5 0 014.5 4.5v2.5l1.5 2H2L3.5 8.5V6A4.5 4.5 0 018 1.5z" stroke="#64748b" strokeWidth="1.2" strokeLinejoin="round"/><path d="M6.5 12.5a1.5 1.5 0 003 0" stroke="#64748b" strokeWidth="1.2" strokeLinecap="round"/></svg>
-              <span className="la-bdot"></span>
-            </button>
-            <div className="la-ui">
-              <span className="la-un">Alex Johnson</span>
-              <span className="la-ur">Premium Member</span>
-            </div>
-            <div className="la-av">A<span className="la-avdot"></span></div>
-          </div>
-        </div>
 
         <div className="la-content">
           {/* Title Row */}

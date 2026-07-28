@@ -178,12 +178,12 @@ if (loading) {
 
         {/* TOPBAR */}
         <TopBar
-          user={dashboardData?.user}
-          notificationCount={dashboardData?.notifications?.totalNotifications}
-          onProfile={handleProfile}
-          onLogout={handleLogout}
-        />
-
+  user={dashboardData?.user}
+  notificationCount={dashboardData?.notifications?.totalNotifications}
+  onProfile={handleProfile}
+  onLogout={handleLogout}
+  onNotification={() => navigate("/messagepage")}
+/>
         {/* CONTENT GRID */}
         <div className="dashboard-content">
 

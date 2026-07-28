@@ -1,10 +1,12 @@
 import "./TopBar.css";
 
+
 export default function TopBar({
   user,
   notificationCount = 0,
   onProfile,
   onLogout,
+  onNotification,
 }) {
   const userName = user?.first_name || "Guest";
   const userRole = user?.email || "Premium Member";
@@ -42,7 +44,7 @@ export default function TopBar({
       <div className="topbar-right">
 
         {/* Notification */}
-        <button className="topbar-bell">
+        <button className="topbar-bell"onClick={onNotification}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path
               d="M9 2a5 5 0 00-5 5v3l-1.5 2h13L14 10V7a5 5 0 00-5-5z"

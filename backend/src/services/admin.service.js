@@ -1,7 +1,9 @@
+const { addNotification } = require("./notification.service");
 const {
   getDashboardStats,
   approveLoan,
   rejectLoan,
+  getLoanById,
   getAllUsers,
   getAllLoans,
 } = require("../models/admin.model");
@@ -13,15 +15,37 @@ const fetchDashboardStats = async () => {
 
 };
 const approveLoanService = async (loanId) => {
-
   await approveLoan(loanId);
 
+  const loan = await getLoanById(loanId);
+
+  await addNotification(
+    loan.userId,
+    "Loan Approved",
+    `Congratulations! Your ${loan.loanType} loan application has been approved.`
+  );
+
+  return {
+    success: true,
+    message: "Loan approved successfully",
+  };
 };
 
 const rejectLoanService = async (loanId) => {
-
   await rejectLoan(loanId);
 
+  const loan = await getLoanById(loanId);
+
+  await addNotification(
+    loan.userId,
+    "Loan Rejected",
+    `Your ${loan.loanType} loan application has been rejected.`
+  );
+
+  return {
+    success: true,
+    message: "Loan rejected successfully",
+  };
 };
 
 const fetchAllUsers = async () => {

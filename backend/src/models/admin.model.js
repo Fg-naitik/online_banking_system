@@ -167,10 +167,27 @@ ORDER BY u.created_at DESC;
   return loans;
 
 };
+
+const getLoanById = async (loanId) => {
+  const [rows] = await pool.execute(
+    `
+    SELECT
+      loan_id,
+      user_id AS userId,
+      loan_type AS loanType
+    FROM loans
+    WHERE loan_id = ?
+    `,
+    [loanId]
+  );
+
+  return rows[0];
+};
 module.exports = {
   getDashboardStats,
   approveLoan,
   rejectLoan,
   getAllUsers,
   getAllLoans,
+  getLoanById,
 };

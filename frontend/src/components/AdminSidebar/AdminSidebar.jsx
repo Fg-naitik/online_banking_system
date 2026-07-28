@@ -25,26 +25,14 @@ const AdminSidebar = () => {
       path: "/admin/users",
       icon: <FaUsers />,
     },
-    {
-      title: "Accounts",
-      path: "/admin/account",
-      icon: <FaUniversity />,
-    },
-    {
-      title: "Transactions",
-      path: "/admin/transactions",
-      icon: <FaExchangeAlt />,
-    },
+    
+    
     {
       title: "Loans",
       path: "/admin/loans",
       icon: <FaMoneyCheckAlt />,
     },
-    {
-      title: "Settings",
-      path: "/admin/settings",
-      icon: <FaCog />,
-    },
+    
   ];
 
   return (

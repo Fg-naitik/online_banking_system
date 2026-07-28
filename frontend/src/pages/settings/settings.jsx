@@ -100,22 +100,7 @@ export default function SettingsPage() {
     <div style={styles.layout}>
       <Sidebar active="settings" />
       <div style={styles.main}>
-        {/* Topbar */}
-        <div style={styles.tb}>
-          <div style={styles.srch}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#94a3b8" strokeWidth="1.3"/><path d="M9.5 9.5l2.5 2.5" stroke="#94a3b8" strokeWidth="1.3" strokeLinecap="round"/></svg>
-            <input type="text" placeholder="Search transactions or ask AI..." style={{border:'none',background:'none',fontSize:'13px',outline:'none',width:'100%'}}/>
-          </div>
-          <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-            <div style={{textAlign:'right'}}>
-              <span style={{fontSize:'13px',fontWeight:600,display:'block'}}>Alex Johnson</span>
-              <span style={{fontSize:'11px',color:'#94a3b8',display:'block'}}>Premium Member</span>
-            </div>
-            <div style={{width:'34px',height:'34px',borderRadius:'50%',background:'#29b6f6',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',fontWeight:700,color:'#fff',position:'relative',flexShrink:0}}>
-              A<span style={{position:'absolute',bottom:'1px',right:'1px',width:'8px',height:'8px',background:'#10b981',borderRadius:'50%',border:'1.5px solid #fff'}}></span>
-            </div>
-          </div>
-        </div>
+       
 
         <div style={styles.content}>
           {/* Page Header */}

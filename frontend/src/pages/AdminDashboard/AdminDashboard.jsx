@@ -423,56 +423,6 @@ Success
 
           </div>
 
-          {/* Today's Summary */}
-
-          <div className="summary-card">
-
-            <h3>Today's Summary</h3>
-
-            <div className="summary-item">
-
-              <span>New Users</span>
-
-              <h2>12</h2>
-
-            </div>
-
-            <div className="summary-item">
-
-              <span>Transactions</span>
-
-              <h2>164</h2>
-
-            </div>
-
-            <div className="summary-item">
-
-              <span>Loan Requests</span>
-
-              <h2>8</h2>
-
-            </div>
-
-            <div className="summary-item">
-
-              <span>Total Revenue</span>
-
-              <h2>₹5,48,000</h2>
-
-            </div>
-
-            <div className="summary-item">
-
-              <span>Server Status</span>
-
-              <h2 className="online">
-                Healthy
-              </h2>
-
-            </div>
-
-          </div>
-
         </div>
 
       </div>
