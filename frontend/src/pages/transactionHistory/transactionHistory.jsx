@@ -5,6 +5,7 @@ import "./transactionHistory.css";
 import '../../styles/global.css';
 import Sidebar from "../../components/sidebar/sidebar";
 
+
 /* ── Icons ── */
 const SearchIcon = () => <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#94a3b8" strokeWidth="1.3"/><path d="M9.5 9.5l2.5 2.5" stroke="#94a3b8" strokeWidth="1.3" strokeLinecap="round"/></svg>;
 const CalIcon = () => <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="9.5" rx="1.2" stroke="#475569" strokeWidth="1.1"/><path d="M4 1v2M9 1v2M1 5h11" stroke="#475569" strokeWidth="1.1" strokeLinecap="round"/></svg>;
@@ -213,25 +214,12 @@ const dateFilteredTransactions = filteredTransactions.filter((tx) => {
       <div className="tx-main">
 
         {/* TopBar */}
-        <div style={{height:'56px',background:'#fff',borderBottom:'1px solid #e2e8f0',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 28px',position:'sticky',top:0,zIndex:40}}>
-          <div style={{display:'flex',alignItems:'center',gap:'8px',background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:'8px',padding:'8px 14px',minWidth:'260px'}}>
-            <SearchIcon />
-            <input type="text" placeholder="Search transactions or ask AI..." style={{border:'none',background:'none',fontSize:'13px',outline:'none',width:'100%',color:'#0f172a'}}/>
-          </div>
-          <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-            <button style={{position:'relative',width:'32px',height:'32px',borderRadius:'8px',background:'none',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',color:'#64748b'}}>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a4.5 4.5 0 014.5 4.5v2.5l1.5 2H2L3.5 8.5V6A4.5 4.5 0 018 1.5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/><path d="M6.5 12.5a1.5 1.5 0 003 0" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-              <span style={{position:'absolute',top:'4px',right:'4px',width:'6px',height:'6px',background:'#ef4444',borderRadius:'50%',border:'1.5px solid #fff'}}></span>
-            </button>
-            <div style={{textAlign:'right'}}>
-              <span style={{fontSize:'13px',fontWeight:'600',display:'block'}}>Alex Rivera</span>
-              <span style={{fontSize:'11px',color:'#94a3b8',display:'block'}}>Premium Member</span>
-            </div>
-            <div style={{width:'34px',height:'34px',borderRadius:'50%',background:'#29b6f6',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',fontWeight:'700',color:'#fff',position:'relative',flexShrink:0}}>
-              A<span style={{position:'absolute',bottom:'1px',right:'1px',width:'8px',height:'8px',background:'#10b981',borderRadius:'50%',border:'1.5px solid #fff'}}></span>
-            </div>
-          </div>
-        </div>
+       
+
+
+
+
+
 
         <div className="tx-content">
 
