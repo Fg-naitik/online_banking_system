@@ -1,4 +1,4 @@
-import './Dashboard.css';
+import "./dashboard.css";
 import '../../styles/global.css';
 //import CreditCard from "../../components/CreditCard/CreditCard";
 
