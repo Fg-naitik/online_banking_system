@@ -1,4 +1,5 @@
 const mysql = require("mysql2/promise");
+const fs = require("fs");
 require("dotenv").config();
 
 const pool = mysql.createPool({
@@ -7,6 +8,10 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+
+  ssl: {
+    ca: fs.readFileSync("./isrgrootx1.pem")
+  },
 
   waitForConnections: true,
   connectionLimit: 10,
@@ -28,7 +33,10 @@ const connectDB = async () => {
   }
 };
 
+
 module.exports = {
   pool,
   connectDB
 };
+
+
