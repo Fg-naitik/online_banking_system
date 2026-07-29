@@ -1,5 +1,6 @@
 const mysql = require("mysql2/promise");
 const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 
 const pool = mysql.createPool({
@@ -10,12 +11,13 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME,
 
   ssl: {
-    ca: fs.readFileSync("./isrgrootx1.pem")
+    ca: fs.readFileSync(path.join(__dirname, "../../isrgrootx1.pem")),
+    rejectUnauthorized: true,
   },
 
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
 });
 
 const connectDB = async () => {
@@ -27,7 +29,7 @@ const connectDB = async () => {
     connection.release();
   } catch (error) {
     console.error("❌ Database Connection Failed");
-    console.error(error.message);
+    console.error(error);
 
     process.exit(1);
   }
@@ -36,7 +38,5 @@ const connectDB = async () => {
 
 module.exports = {
   pool,
-  connectDB
+  connectDB,
 };
-
-
